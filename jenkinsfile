@@ -22,9 +22,7 @@ pipeline {
 	stage('Front end test') {
             steps {
                 echo 'Front end test'
-                sh 'cd ${env.WORKSPACE}/ui/js'
-		sh 'ls'
-		sh 'cd ../..'
+         
             }
         }
         
