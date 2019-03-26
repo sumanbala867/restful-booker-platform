@@ -11,6 +11,6 @@
         <module>room</module>
         <module>report</module>
         <module>branding</module>
-        <module>ui/api</module>
+       
     </modules>
 </project>
