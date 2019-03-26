@@ -19,19 +19,20 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-        stage('Unit Test') {
+	stage('Front end test') {
             steps {
-                echo 'Running unit test'
-                sh 'mvn test'
-           }
+                echo 'Front end test'
+    
+            }
         }
+        
         stage('Test'){
         parallel {
             stage('Integration Test') {
                 steps {
                     echo 'Running integration test'
-                    echo 'Visual skip test set to true'
-                    sh 'mvn integration-test -DskipITs=true'
+          
+                    sh 'mvn install -DskipITs=true'
                 }
             }
             stage('Sonarqube') {
