@@ -22,7 +22,7 @@ pipeline {
 	stage('Front end test') {
             steps {
                 echo 'Front end test'
-         
+                echo ${WORKSPACE}
             }
         }
         
