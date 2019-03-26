@@ -1,0 +1,129 @@
+pipeline {
+    agent any
+    triggers {
+    	pollSCM 'H/5 * * * *'
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr:'1'))
+        disableConcurrentBuilds()
+        timeout(time: 5, unit: 'MINUTES')
+        timestamps()
+    }
+    tools {
+        maven 'maven3'
+    }
+    stages {
+        stage('Checkout and Build') {
+            steps {
+                echo 'cloning repo..'
+                sh 'mvn clean'
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                echo 'Running unit test'
+                sh 'mvn test'
+           }
+        }
+        stage('Test'){
+        parallel {
+            stage('Integration Test') {
+                steps {
+                    echo 'Running integration test'
+                    echo 'Visual skip test set to true'
+                    sh 'mvn integration-test -DskipITs=true'
+                }
+            }
+            stage('Sonarqube') {
+    		steps {
+        	  echo 'Set-up sonarqube here'
+    		}
+	    }
+            stage('Security') {
+                steps {
+                    echo 'Run ZAP check here'
+                }
+            }
+          }
+        }
+        stage('Build Package') {
+            steps {
+                withMaven(options: [findbugsPublisher(), junitPublisher(ignoreAttachments: false)]) {
+                    sh 'mvn clean findbugs:findbugs package'
+                }
+            }
+            post {
+                always {
+                    echo 'Current build number is : , ${env.BUILD_NUMBER}'
+                }
+                aborted {
+                    echo 'BUILD ABORTED'
+                }
+                success {
+                    echo 'BUILD SUCCESS'
+                }
+                unstable {
+                    echo 'BUILD UNSTABLE'
+                }
+                failure {
+                    echo 'BUILD FAILURE'
+                }
+           }
+      }
+      stage('Deploy Dev') {
+          steps {
+            echo 'Deploying on Dev'
+          }
+      }
+      stage('Test - UAT Dev') {
+         steps {
+           echo 'Testing - UAT Dev'
+         }
+      }
+      stage('Deploy Stage') {
+         steps {
+           echo 'Deploying on Stage'
+         }
+      }
+      stage('Test - Stage') {
+         steps {
+           echo 'Testing - Stage'
+         }
+     }
+     stage('Reports') {
+        steps {
+            junit '**/target/surefire-reports/TEST-*.xml'
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true, allowEmptyArchive: true
+        }
+     }
+     stage('Approve') {
+        steps {
+           approve()
+        }
+     }
+     stage('Deploy') {
+        when {
+            branch 'production'
+        }
+        steps {
+            echo 'Deploying'
+        }
+     }
+     stage('Sanity Test') {
+     	steps {
+            echo 'Sanity Test'
+        }
+     }
+     stage('Clean-up') {
+        steps {
+            deleteDir()
+        }
+     }
+   }
+}
+
+def approve() {
+    timeout(time:1, unit:'DAYS') {
+	input('Do you want to deploy to live?')
+    }
+}
