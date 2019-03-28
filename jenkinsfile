@@ -36,15 +36,10 @@ pipeline {
                 }
             }
            stage('SonarQube analysis') {
-	    environment {
-        	scannerHome = tool 'SonarQubeScanner'
-    		}
+	    
     		steps {
-        	withSonarQubeEnv('SonarQube') {
-            	sh "${scannerHome}/bin/sonar-scanner"
-       		 }
-               
-  	  }
+        	  sh 'mvn clean verify sonar:sonar'
+		}
 	  }
             stage('Security') {
                 steps {
