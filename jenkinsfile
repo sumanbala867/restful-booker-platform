@@ -35,11 +35,13 @@ pipeline {
                     sh 'mvn install -DskipITs=true'
                 }
             }
-            stage('Sonarqube') {
-    		steps {
-        	  echo 'Set-up sonarqube here'
+           stage('SonarQube analysis') {
+   
+ 		def scannerHome = tool 'SonarQubeScanner';
+    		withSonarQubeEnv('SonarQube') {
+      		sh "${scannerHome}/bin/sonar-scanner"
     		}
-	    }
+  	  }
             stage('Security') {
                 steps {
                     echo 'Run ZAP check here'
