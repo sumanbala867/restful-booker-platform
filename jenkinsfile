@@ -38,7 +38,7 @@ pipeline {
            stage('SonarQube analysis') {
 	    
     		steps {
-        	  sh 'mvn clean verify sonar:sonar'
+        	  echo 'Sonar Qube integration here'
 		}
 	  }
             stage('Security') {
