@@ -36,12 +36,13 @@ pipeline {
                 }
             }
            stage('SonarQube analysis') {
-   
+                steps {
  		def scannerHome = tool 'SonarQubeScanner';
     		withSonarQubeEnv('SonarQube') {
       		sh "${scannerHome}/bin/sonar-scanner"
     		}
   	  }
+	  }
             stage('Security') {
                 steps {
                     echo 'Run ZAP check here'
