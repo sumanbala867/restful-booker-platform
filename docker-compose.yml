@@ -1,0 +1,24 @@
+version: '3.6'
+services:
+    jenkins-blueocean:
+        image: jenkinsci/blueocean
+        container_name:
+            jenkins-blueocean
+        ports:
+            - 8080:8080
+            - 50000:50000
+        volumes:
+            - ./myJenkins:/var/jenkins_home
+    bridging-tcp:
+        image: bobrik/socat
+        container_name:
+            bridging-tcp
+        ports:
+            - 1234:1234
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        command: "TCP-LISTEN:1234,fork UNIX-CONNECT:/var/run/docker.sock"   
+        depends_on: 
+            - jenkins-blueocean
+volumes:
+  myJenkins:
