@@ -17,12 +17,14 @@ pipeline {
             steps {
                 echo 'cloning repo..'
                 sh 'mvn clean'
+                milestone(1)
             }
         }
 	stage('Front end test') {
             steps {
                 echo 'Front end test'
                 echo "${WORKSPACE}"
+                milestone(2)
             }
         }
         
@@ -105,12 +107,16 @@ pipeline {
      }
      stage('Deploy') {
         when {
-            branch 'production'
+            branch 'workshop'
         }
         steps {
+            milestone(3)
             echo 'Deploying'
+            approve()
+            }
+            milestone(4)
         }
-     }
+
      stage('Sanity Test') {
      	steps {
             echo 'Sanity Test'
