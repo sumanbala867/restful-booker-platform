@@ -113,9 +113,10 @@ pipeline {
             milestone(3)
             echo 'Deploying'
             approve()
-            }
             milestone(4)
-        }
+            }
+
+     }
 
      stage('Sanity Test') {
      	steps {
