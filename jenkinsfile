@@ -41,6 +41,7 @@ pipeline {
 	    
     		steps {
         	  echo 'Sonar Qube integration here'
+		  sh 'sonar-scanner'
 		}
 	  }
             stage('Security') {
