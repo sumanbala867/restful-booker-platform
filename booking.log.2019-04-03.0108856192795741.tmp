@@ -1,0 +1,32 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.3.RELEASE)
+
+2019-04-03 23:55:19.961  INFO 44871 --- [           main] api.BookingApplication                   : Starting BookingApplication on OSTML0253494 with PID 44871 (/Users/sba53/Documents/workshop/TESTBASH_BRIGHTON/restful-booker-platform/booking/target/restful-booker-platform-booking-1.0-SNAPSHOT.jar started by sba53 in /Users/sba53/Documents/workshop/TESTBASH_BRIGHTON/restful-booker-platform)
+2019-04-03 23:55:19.965  INFO 44871 --- [           main] api.BookingApplication                   : The following profiles are active: dev
+2019-04-03 23:55:38.308  INFO 44871 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3000 (http)
+2019-04-03 23:55:38.635  INFO 44871 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-03 23:55:38.636  INFO 44871 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-03 23:55:38.710  INFO 44871 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/sba53/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-04-03 23:55:39.424  INFO 44871 --- [           main] o.a.c.c.C.[.[localhost].[/booking]       : Initializing Spring embedded WebApplicationContext
+2019-04-03 23:55:39.425  INFO 44871 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 18380 ms
+2019-04-03 23:55:46.412  INFO 44871 --- [           main] utils.DatabaseScheduler                  : No env var was set for DB refresh (or set as 0) so not running DB reset
+2019-04-03 23:55:47.157  INFO 44871 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-03 23:55:47.777  INFO 44871 --- [           main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-03 23:55:48.504  INFO 44871 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-03 23:55:50.839  INFO 44871 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-04-03 23:55:50.975  INFO 44871 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-04-03 23:55:51.319  INFO 44871 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-04-03 23:55:52.469  INFO 44871 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3000 (http) with context path '/booking'
+2019-04-03 23:55:52.478  INFO 44871 --- [           main] api.BookingApplication                   : Started BookingApplication in 35.896 seconds (JVM running for 38.348)
+2019-04-03 23:55:54.735  INFO 44871 --- [nio-3000-exec-1] o.a.c.c.C.[.[localhost].[/booking]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-03 23:55:54.738  INFO 44871 --- [nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-03 23:55:54.776  INFO 44871 --- [nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 38 ms
+2019-04-04 00:04:25.906  INFO 44871 --- [       Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+Servlet'
+2019-04-03 23:55:54.776  INFO 44871 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 38 ms

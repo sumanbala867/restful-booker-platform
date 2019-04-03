@@ -42,7 +42,7 @@ echo ####                               ####
 echo ####      APPLICATION READY        ####
 echo ####                               ####
 echo ####         Available at:         ####
-echo ####     http://localhost:8080     ####
+echo ####     http://localhost:8082     ####
 echo ####                               ####
 echo ####      PRESS ENTER TO QUIT      ####
 echo ####                               ####

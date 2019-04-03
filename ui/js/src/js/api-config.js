@@ -15,11 +15,11 @@ if(hostname !== 'localhost') {
   welcome = true;
 } else {
   backendHost = {
-    booking : "http://" + window.location.hostname + ":8080",
-    room : "http://" + window.location.hostname + ":8080",
-    branding : "http://" + window.location.hostname + ":8080",
-    auth : "http://" + window.location.hostname + ":8080/auth",
-    report : "http://" + window.location.hostname + ":8080"
+    booking : "http://" + window.location.hostname + ":8082",
+    room : "http://" + window.location.hostname + ":8082",
+    branding : "http://" + window.location.hostname + ":8082",
+    auth : "http://" + window.location.hostname + ":8082/auth",
+    report : "http://" + window.location.hostname + ":8082"
   }
 
   welcome = false;

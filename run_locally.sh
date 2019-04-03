@@ -46,7 +46,7 @@ printf "\n####### RESTFUL-BOOKER-PLATFORM #######
 ####      APPLICATION READY        ####
 ####                               ####
 ####         Available at:         ####
-####     http://localhost:8080     ####
+####     http://localhost:8082     ####
 ####                               ####
 #######################################"
 
